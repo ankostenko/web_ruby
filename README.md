@@ -1,2 +1,2 @@
 # web_ruby
-Web project written with ruby
+Web projects written with ruby
