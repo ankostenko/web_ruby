@@ -1,5 +1,5 @@
 # boostrap stuff
 /static_html_page/web_page/css/*
 /static_html_page/web_page/js/*
-/*/css/*
-/*/js/*
+/*/public/css/*
+/*/public/js/*
