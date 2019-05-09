@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Toy store -- <%= @name %></title>
+    <meta charset=utf-8">
+  </head>
+  <body>
+
+    <h1><%= @name %> (<%= @code %>)</h1>
+    <p><%= @desc %></p>
+
+    <ul>
+      <% @features.each do |f| %>
+      <li><b><%= f %></b></li>
+      <% end %>
+    </ul>
+
+    <p>
+    <% if @cost < 10 %>
+    <b>Всего <%= @cost %>!!!</b>
+    <% else %>
+    Свяжитесь с нами, чтобы узнать цену!
+    <% end %>
+    </p>
+  </body>
+</html>
