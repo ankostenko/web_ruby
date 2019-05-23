@@ -1,0 +1,17 @@
+- Bundler
+
+- Rubocop
+
+- Unit-testing : RSpec
+  -- rspec-mocks
+  -- SimpleCov
+
+- Sinatra
+  -- GET requests
+  -- Bootstrap/Foundation
+  -- POST requsets processing 
+  -- Saving user data
+  -- Arguments passing through command line
+  -- System testing 
+
+
