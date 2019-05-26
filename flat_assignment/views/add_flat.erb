@@ -1,14 +1,26 @@
-<div class="container">
+<form method="post">
+  <div class="container">
   <div class="row">
     <div class="col">
     </div>
     <div class="col">
-      <form>
-        <div class="form-group">
-          <label for="square">Square</label>
-          <input type="square" class="form-control" id="square" placeholder="100">
-        </div>
-      </form>
+      <div class="form-group">
+        <label for="square">Square</label>
+        <input type="text" class="form-control" id="square" name="square" placeholder="100">
+      </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="n_rooms">Number of rooms</label>
+        <input type="text" class="form-control" id="n_rooms" name="n_rooms" placeholder="3">
+      </div>
     </div>
     <div class="col">
     </div>
@@ -18,84 +30,78 @@
     <div class="col">
     </div>
     <div class="col">
-      <form>
-        <div class="form-group">
-          <label for="n_rooms">Number of rooms</label>
-          <input type="n_rooms" class="form-control" id="n_rooms" placeholder="3">
-        </div>
-      </form>
+      <div class="form-group">
+        <!-- Address could consist of three different fields  -->
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" name="address" placeholder="District Street Number of the house">
+      </div>
     </div>
     <div class="col">
     </div>
   </div>
+
   <div class="row">
     <div class="col">
     </div>
     <div class="col">
-      <form>
-        <div class="form-group">
-          <label for="address">Address</label>
-          <input type="address" class="form-control" id="address" placeholder="District Street Number of the house">
-        </div>
-      </form>
+      <div class="form-group">
+        <label for="floor">Floor</label>
+        <input type="text" class="form-control" id="floor" name="floor"placeholder="100">
+      </div>
     </div>
     <div class="col">
     </div>
   </div>
+
   <div class="row">
     <div class="col">
     </div>
     <div class="col">
-      <form>
-        <div class="form-group">
-          <label for="floor">Floor</label>
-          <input type="floor" class="form-control" id="floor" placeholder="100">
-        </div>
-      </form>
+      <!-- Here I can use dropdown chooser  --> 
+      <div class="form-group">
+        <label for="hs_type">Type of the house</label>
+        <input type="text" class="form-control" id="hs_type" name="hs_type" placeholder="Bricks/Panel">
+      </div>
     </div>
     <div class="col">
     </div>
   </div>
+
   <div class="row">
     <div class="col">
     </div>
     <div class="col">
-      <form>
-        <div class="form-group">
-          <label for="square">Type of the house</label>
-          <input type="square" class="form-control" id="square" placeholder="100">
-        </div>
-      </form>
+      <div class="form-group">
+        <label for="n_floors">Number of floors</label>
+        <input type="text" class="form-control" id="n_floors" name="n_floors" placeholder="100">
+      </div>
     </div>
     <div class="col">
     </div>
   </div>
+
   <div class="row">
     <div class="col">
     </div>
     <div class="col">
-      <form>
-        <div class="form-group">
-          <label for="square">Number of floors</label>
-          <input type="square" class="form-control" id="square" placeholder="100">
-        </div>
-      </form>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" class="form-control" id="price" name="price" placeholder="100">
+      </div>
     </div>
     <div class="col">
     </div>
   </div>
+
   <div class="row">
     <div class="col">
     </div>
     <div class="col">
-      <form>
-        <div class="form-group">
-          <label for="square">Price</label>
-          <input type="square" class="form-control" id="square" placeholder="100">
-        </div>
-      </form>
+      <!-- Submit button  -->
+      <button type="submit" class="btn btn-primary">Add flat</button>
     </div>
     <div class="col">
     </div>
   </div>
-</div>
+  </div>
+</form>

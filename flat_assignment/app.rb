@@ -16,10 +16,18 @@ get '/' do
 end
 
 get '/main' do
+  @flats = settings.flats
   erb :index
 end
 
 get '/add_flat' do
   erb :add_flat
+end
+
+post '/add_flat' do
+  flat = Flat.new(params['square'], params['n_rooms'], params['address'], params['floor'], 
+                  params['hs_type'], params['n_floors'], params['price']) 
+  settings.flats.add(flat)
+  redirect('/main')
 end
 

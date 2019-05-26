@@ -7,4 +7,8 @@ class FlatHolder
   def add(flat)
     @holder.push(flat)
   end
+
+  def each 
+    @holder.each { |flat| yield(flat) }
+  end
 end
