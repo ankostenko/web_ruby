@@ -31,3 +31,11 @@ post '/add_flat' do
   redirect('/main')
 end
 
+get '/delete' do
+  
+end
+
+post '/delete' do
+  settings.flats.remove(params['index'])
+  redirect('/main')
+end
