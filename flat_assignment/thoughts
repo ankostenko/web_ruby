@@ -13,18 +13,15 @@ Request:
   - House type
 
 Functionality: 
-  - Add/delete flat
-  - Add/delete request
-  - Print all requests of certain district sorted by number of rooms
-  - Print all flats grouped by a district and sorted by square
+  - Add/delete flat (DONE: in some sense)
+  - Add/delete request (DONE)
   - Print all flats within certain range of the price
   - Print all flats that match criteria of the search
   - Print all flats that almost match criteria with number of flats differs no more than 1
   - Satisfy request: from list 'almost matches' choose one. Request and flat should be deleted.
   - Statistics for each district: 
     - Whole number of offers
-    - Mean square
-    - Mean price
+    - Mean square - Mean price
     - Number of requests
     - Potential percent of coverage of the requests (how many requests relative to whole number
       of the requests in this district have at least one fully matched flat)  

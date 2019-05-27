@@ -4,13 +4,30 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Address: <%= flat.address %> </p>
-        <p class="card-text">Square:<%= flat.square %> </p>
-        <p class="card-text">Number of rooms:<%= flat.n_rooms %> </p>
-        <p class="card-text">Floor:<%= flat.floor %> </p>
-        <p class="card-text">Type of the house:<%= flat.hs_type %> </p>
-        <p class="card-text">Number of floors:<%= flat.n_floors %> </p>
-        <p class="card-text">Price:<%= flat.price %> </p>
-        <form action="/delete" method="post"> 
+        <p class="card-text">Square: <%= flat.square %> </p>
+        <p class="card-text">Number of rooms: <%= flat.n_rooms %> </p>
+        <p class="card-text">Floor: <%= flat.floor %> </p>
+        <p class="card-text">Type of the house: <%= flat.hs_type %> </p>
+        <p class="card-text">Number of floors: <%= flat.n_floors %> </p>
+        <p class="card-text">Price: <%= flat.price %> </p>
+        <form action="/delete_flat" method="post"> 
+          <input type="text" name="index" style="display:none"  value="<%= index %>">
+          <button type="submit" class="btn btn-danger">Remove</button>
+        </form>
+    </div>
+  </div>
+<% end %>
+
+<h3>Requests</h3>
+
+<% @requests.each_with_index do |request, index| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Request #<%= index + 1 %> </p>
+        <p class="card-text">Number of rooms: <%= request.n_rooms  %> </p>
+        <p class="card-text">District: <%= request.district %> </p>
+        <p class="card-text">Type of the house: <%= request.hs_type %> </p>
+        <form action="/delete_request" method="post"> 
           <input type="text" name="index" style="display:none"  value="<%= index %>">
           <button type="submit" class="btn btn-danger">Remove</button>
         </form>
