@@ -3,13 +3,14 @@ require_relative 'lib/flats_holder'
 require_relative 'lib/flat'
 require_relative 'lib/request'
 require_relative 'lib/request_holder'
+require_relative 'lib/address'
 
 configure do
   set :flats, FlatHolder.new([
     # square, numbder of rooms, address, floor, house type, number of floors, price 
-    Flat.new(123, 2, "Address", 3, "Brick", 5, 12300),
-    Flat.new(123, 2, "Addr", 3, "Brick", 10, 12300),
-    Flat.new(123, 2, "Addrs", 3, "Panel", 5, 12300),
+    Flat.new(123, 2, Address.new("Dist #1", "Str #1", 1), 3, "Brick", 5, 12300),
+    Flat.new(123, 2, Address.new("Dist #2", "Str #2", 2), 3, "Brick", 10, 12300),
+    Flat.new(123, 2, Address.new("Dist #3", "Str #3", 3), 3, "Panel", 5, 12300),
   ])
 
   set :requests, RequestHolder.new([
@@ -36,7 +37,8 @@ get '/add_flat' do
 end
 
 post '/add_flat' do
-  flat = Flat.new(params['square'], params['n_rooms'], params['address'], params['floor'], 
+  address = Address.new(params['dist'], params['street'], params['n_house'])
+  flat = Flat.new(params['square'], params['n_rooms'], address, params['floor'], 
                   params['hs_type'], params['n_floors'], params['price']) 
   settings.flats.add(flat)
   redirect('/main')
@@ -53,6 +55,11 @@ end
 get '/show_flats' do
   @flats = settings.flats
   erb :show_flats 
+end
+
+post '/show_flats_r' do
+  @flats = settings.flats.f_range(params['range-min'], params['range-max'])
+  erb :show_flats
 end
 
 get '/show_requests' do
