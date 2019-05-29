@@ -15,7 +15,7 @@
             <input type="text" class="form-control" id="range-min" name="range-min"placeholder="0">
           </div>
           <div class="display: table-cell m-1">
-            <input type="text" class="form-control" id="range-max" name="range-max"placeholder="1000">
+            <input type="text" class="form-control" id="range-max" name="range-max"placeholder="100">
           </div>
           <div class="display: table-cell m-1">
             <button type="submit" class="btn btn-primary">Search</button>
@@ -24,6 +24,20 @@
       </div>
     </form>
 
+    <!-- GROUPED AND SORTED SEARCH -->
+    <form action="/show_flats_g" method="post" style="display: table">
+      <div class="container p-3">
+        <label for="dist">District</label>
+        <div class="row">
+          <div class="display: table-cell m-1">
+            <input type="text" class="form-control" id="dist" name="dist" placeholder="District">
+          </div>
+          <div class="display: table-cell m-1">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+        </div>
+      </div>
+    </form>
     <!-- DISPLAY -->
     <% @flats.each_with_index do |flat, index| %>
       <div class="card">

@@ -17,6 +17,13 @@
               <input type="text" name="index" style="display:none"  value="<%= index %>">
               <button type="submit" class="btn btn-danger">Remove</button>
             </form>
+            <form action="/find_flats" method="post">
+              <input type="text" name="index" style="display:none" value="<%= index %>">
+              <input type="text" name="n_rooms" style="display:none" value="<%= request.n_rooms %>">
+              <input type="text" name="dist" style="display:none" value="<%= request.district %>">
+              <input type="text" name="hs_type" style="display:none" value="<%= request.hs_type %>">
+              <button type="submit" class="brn btn-primary">Show flats</button>
+            </form>
         </div>
       </div>
     <% end %>

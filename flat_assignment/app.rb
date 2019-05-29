@@ -9,14 +9,14 @@ configure do
   set :flats, FlatHolder.new([
     # square, numbder of rooms, address, floor, house type, number of floors, price 
     Flat.new(123, 2, Address.new("Dist #1", "Str #1", 1), 3, "Brick", 5, 12300),
-    Flat.new(123, 2, Address.new("Dist #2", "Str #2", 2), 3, "Brick", 10, 12300),
+    Flat.new(123, 3, Address.new("Dist #1", "Str #2", 2), 3, "Brick", 10, 12300),
     Flat.new(123, 2, Address.new("Dist #3", "Str #3", 3), 3, "Panel", 5, 12300),
   ])
 
   set :requests, RequestHolder.new([
     # number of rooms, district, hs_type
-    Request.new(3, "District #1", "Panel"),
-    Request.new(4, "District #2", "Brick") 
+    Request.new(3, "Dist #1", "Brick"),
+    Request.new(4, "Dist #2", "Brick") 
   ])
 end 
 
@@ -62,8 +62,13 @@ post '/show_flats_r' do
   erb :show_flats
 end
 
+post '/show_flats_g' do
+  @flats = settings.flats.group_and_sort(params['dist'])
+  erb :show_flats
+end
+
 get '/show_requests' do
-  @requests = settings.requests 
+  @requests = settings.requests.sort! { |a, b| a.n_rooms.to_i - b.n_rooms.to_i } 
   erb :show_requests
 end
 
@@ -83,4 +88,13 @@ post '/add_request' do
   request = Request.new(params['n_rooms'], params['district'], params['hs_type'])
   settings.requests.add(request)
   redirect('/show_requests')
+end
+
+post '/find_flats' do
+  @index = params['index']
+  @n_rooms = params['n_rooms']
+  @dist = params['dist']
+  @hs_type = params['hs_type']
+  @flats = settings.flats.group(params['n_rooms'], params['dist'], params['hs_type'])
+  erb :matched_flats 
 end

@@ -1,0 +1,48 @@
+<!-- DISPLAY -->
+
+<h3>Request #<%=@index.to_i + 1 %></h3>
+<div class="card">
+  <div class="card-body">
+    <p class="card-text">Number of rooms: <%= @n_rooms %> </p>
+    <p class="card-text">District: <%= @dist %> </p>
+    <p class="card-text">Type of the house: <%= @hs_type %> </p>
+  </div>
+</div>
+
+<h3>Fully matched flats</h3>
+<% @flats[0].each_with_index do |flat, index| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Address: <%= flat.address.to_s %> </p>
+        <p class="card-text">Square: <%= flat.square %> </p>
+        <p class="card-text">Number of rooms: <%= flat.n_rooms %> </p>
+        <p class="card-text">Floor: <%= flat.floor %> </p>
+        <p class="card-text">Type of the house: <%= flat.hs_type %> </p>
+        <p class="card-text">Number of floors: <%= flat.n_floors %> </p>
+        <p class="card-text">Price: <%= flat.price %> </p>
+        <form action="/" method="post"> 
+          <input type="text" name="index" style="display:none"  value="<%= index %>">
+          <button type="submit" class="btn btn-success">Buy</button>
+        </form>
+    </div>
+  </div>
+<% end %>
+
+<h3>Partially matched flats</h3>
+<% @flats[1].each_with_index do |flat, index| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Address: <%= flat.address.to_s %> </p>
+        <p class="card-text">Square: <%= flat.square %> </p>
+        <p class="card-text">Number of rooms: <%= flat.n_rooms %> </p>
+        <p class="card-text">Floor: <%= flat.floor %> </p>
+        <p class="card-text">Type of the house: <%= flat.hs_type %> </p>
+        <p class="card-text">Number of floors: <%= flat.n_floors %> </p>
+        <p class="card-text">Price: <%= flat.price %> </p>
+        <form action="/delete_flat" method="post"> 
+          <input type="text" name="index" style="display:none"  value="<%= index %>">
+          <button type="submit" class="btn btn-success">Buy</button>
+        </form>
+    </div>
+  </div>
+<% end %>

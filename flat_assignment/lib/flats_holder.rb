@@ -23,8 +23,36 @@ class FlatHolder
         f_flats.push(flat) 
       end
     end
-    pp f_flats 
     f_flats
+  end
+
+  def group_and_sort(district)
+    g_flats = []
+    @holder.each do |flat|
+      if (flat.address.district == district)
+        g_flats.push(flat)
+      end
+    end
+
+   g_flats.sort! { |a, b| a.square.to_i - b.square.to_i }
+  end
+
+  def group(n_rooms, dist, hs_type)
+    fully_matched_flats = []
+    part_matched_flats = []
+    pp "Request: #{n_rooms} - #{dist} - #{hs_type}"
+    @holder.each do |flat|
+      pp "Flat: #{flat.n_rooms} - #{flat.address.district} - #{flat.hs_type}"
+      if dist == flat.address.district && hs_type == flat.hs_type
+        if n_rooms.to_i == flat.n_rooms.to_i
+          fully_matched_flats.push(flat)
+        elsif (n_rooms.to_i - flat.n_rooms.to_i).abs <= 1
+          part_matched_flats.push(flat)
+        end
+      end
+    end
+
+    [fully_matched_flats, part_matched_flats] 
   end
 
   def each_with_index
