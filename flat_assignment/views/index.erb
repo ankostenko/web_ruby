@@ -1,6 +1,11 @@
-<div class="container">
-  <div class="row">
-    <h3>Available flats</h3>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-link" id="flats-tab" data-toggle="tab" href="/show_flats" role="tab" aria-controls="flats" aria-selected="true">Flats</a>
+    <a class="nav-link active" id="reqs-tab" data-toggle="tab" href="#reqs" role="tab" aria-controls="reqs" aria-selected="false">Requests</a>
+  </div>
+</nav>
+<div class="tab-content show active" id="nav-tabContent">
+  <div class="tab-pane fade"  id="flats" role="tabpanel" aria-labelledby="flats-tab">
     <% @flats.each_with_index do |flat, index| %>
       <div class="card">
         <div class="card-body">
@@ -20,7 +25,7 @@
     <% end %>
   </div>
 
-  <div class="row">
+  <div class="tab-pane" id="reqs" role="tabpanel" aria-labelledby="reqs-tab">
     <h3>Requests</h3>
     <% @requests.each_with_index do |request, index| %>
       <div class="card">

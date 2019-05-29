@@ -22,13 +22,13 @@ end
 get '/' do
   @flats = settings.flats
   @requests = settings.requests
-  erb :index 
+  erb :show_flats 
 end
 
 get '/main' do
   @flats = settings.flats
   @requests = settings.requests
-  erb :index
+  erb :show_flats
 end
 
 get '/add_flat' do
@@ -50,12 +50,22 @@ post '/delete_flat' do
   redirect('/main')
 end
 
+get '/show_flats' do
+  @flats = settings.flats
+  erb :show_flats 
+end
+
+get '/show_requests' do
+  @requests = settings.requests 
+  erb :show_requests
+end
+
 get '/delete_request' do
 end
 
 post '/delete_request' do
   settings.requests.remove(params['index'])
-  redirect('/main')
+  redirect('/show_requests')
 end
 
 get '/add_request' do
@@ -65,5 +75,5 @@ end
 post '/add_request' do
   request = Request.new(params['n_rooms'], params['district'], params['hs_type'])
   settings.requests.add(request)
-  redirect('/main')
+  redirect('/show_requests')
 end

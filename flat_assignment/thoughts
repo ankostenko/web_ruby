@@ -1,6 +1,10 @@
 TODO:
   - Organize main page with two different options Requests/Flats
-  - Fix layout
+  - Fix layout(Ha)
+
+WARNING: 
+  - I've changed way to display requests and flats, probably I'll need 
+  index.erb to store common things to show_flats and show_requests files
 
 
 Flat:

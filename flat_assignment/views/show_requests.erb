@@ -1,0 +1,24 @@
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-link" id="flats-tab" data-toggle="tab" href="/show_flats" role="tab" aria-controls="flats" aria-selected="false">Flats</a>
+    <a class="nav-link active" id="reqs-tab" data-toggle="tab" href="/show_requests" role="tab" aria-controls="reqs" aria-selected="true">Requests</a>
+  </div>
+</nav>
+<div class="tab-content show active" id="nav-tabContent">
+  <div class="tab-pane active" id="reqs" role="tabpanel" aria-labelledby="reqs-tab">
+    <% @requests.each_with_index do |request, index| %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Request #<%= index + 1 %> </p>
+            <p class="card-text">Number of rooms: <%= request.n_rooms  %> </p>
+            <p class="card-text">District: <%= request.district %> </p>
+            <p class="card-text">Type of the house: <%= request.hs_type %> </p>
+            <form action="/delete_request" method="post"> 
+              <input type="text" name="index" style="display:none"  value="<%= index %>">
+              <button type="submit" class="btn btn-danger">Remove</button>
+            </form>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
