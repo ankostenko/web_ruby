@@ -8,9 +8,9 @@ require_relative 'lib/address'
 configure do
   set :flats, FlatHolder.new([
     # square, numbder of rooms, address, floor, house type, number of floors, price 
-    Flat.new(123, 2, Address.new("Dist #1", "Str #1", 1), 3, "Brick", 5, 12300),
-    Flat.new(123, 3, Address.new("Dist #1", "Str #2", 2), 3, "Brick", 10, 12300),
-    Flat.new(123, 2, Address.new("Dist #3", "Str #3", 3), 3, "Panel", 5, 12300),
+    Flat.new(80, 2, Address.new("Dist #1", "Str #1", 1), 3, "Brick", 5, 1700000),
+    Flat.new(100, 3, Address.new("Dist #1", "Str #2", 2), 3, "Brick", 10, 2300000),
+    Flat.new(120, 2, Address.new("Dist #3", "Str #3", 3), 3, "Panel", 5, 2500000),
   ])
 
   set :requests, RequestHolder.new([
@@ -104,4 +104,52 @@ post '/satisfy_request' do
   settings.flats.remove(flat_index)
   settings.requests.remove(params['request_index'])
   redirect('/show_flats')
+end
+
+# I use string because it's just simpler instead of json
+def get_districts
+  districts = {}
+  # create hash of all districts
+  flats = settings.flats
+  flats.each do |flat| 
+    dist = flat.address.district
+    districts[dist] = nil unless districts.has_key?(dist)
+  end
+ 
+  reqs = settings.requests
+  reqs.each do |req|
+    dist = req.district
+    districts[dist] = nil unless districts.has_key?(dist) 
+  end
+  districts
+end
+
+get '/statistics' do
+  @districts = get_districts 
+  # obtain statistics
+  flats = settings.flats
+  requests = settings.requests
+  @districts.each_key do |key|
+    # amount of flats, mean square, mean price, amount of requests, coverage
+    dist_info = { a_flats: 0, m_sqr: 0, m_prc: 0, a_reqs: 0, cov: 0 }
+    flats.each do |flat|
+      if key == flat.address.district
+        dist_info[:a_flats] += 1
+        dist_info[:m_sqr] += flat.square
+        dist_info[:m_prc] += flat.price
+      end
+    end
+    requests.each do |req|
+      if key == req.district 
+        dist_info[:a_reqs] += 1
+      end
+    end
+    unless dist_info[:a_flats].zero?
+      dist_info[:m_sqr] /= dist_info[:a_flats]
+      dist_info[:m_prc] /= dist_info[:a_flats]
+    end
+    @districts[key] = dist_info
+  end
+
+  erb :statistics
 end

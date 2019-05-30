@@ -12,6 +12,10 @@ class FlatHolder
     @holder.delete_at(index.to_i)
   end
 
+  def filter
+    @holder.select { |flat| yield(flat) }
+  end
+
   def find(address)
     @holder.each_with_index do |flat, index|
       # string comparison

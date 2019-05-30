@@ -1,0 +1,12 @@
+<%@districts.each do |key, dist|%>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">District: <%= key %> </p>
+        <p class="card-text">Amount of flats: <%= dist[:a_flats] %> </p>
+        <p class="card-text">Mean square: <%= dist[:m_sqr] %> </p>
+        <p class="card-text">Mean price: <%= dist[:m_prc] %> </p>
+        <p class="card-text">Amount of requests: <%= dist[:a_reqs] %> </p>
+        <p class="card-text">Coverage: <%= dist[:cov] %> </p>
+    </div>
+  </div>
+<%end%>
