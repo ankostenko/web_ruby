@@ -11,6 +11,10 @@ class RequestHolder
     @requests.delete_at(index.to_i)
   end
 
+  def empty?
+    @requests.empty?
+  end
+
   def each
     @requests.each { |request| yield(request) }
   end

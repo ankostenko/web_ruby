@@ -29,3 +29,6 @@
     <% end %>
   </div>
 </div>
+<%if @requests.empty? %>
+  <div class="alert alert-warning">There's no requests at this moment</div>
+<%end %>

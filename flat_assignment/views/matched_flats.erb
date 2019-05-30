@@ -20,13 +20,17 @@
         <p class="card-text">Type of the house: <%= flat.hs_type %> </p>
         <p class="card-text">Number of floors: <%= flat.n_floors %> </p>
         <p class="card-text">Price: <%= flat.price %> </p>
-        <form action="/" method="post"> 
-          <input type="text" name="index" style="display:none"  value="<%= index %>">
+        <form action="/satisfy_request" method="post"> 
+          <input type="text" name="flat_address" style="display:none"  value="<%= flat.address %>">
+          <input type="text" name="request_index" style="display:none"  value="<%= @index %>">
           <button type="submit" class="btn btn-success">Buy</button>
         </form>
     </div>
   </div>
 <% end %>
+<%if @flats[0].empty?%>
+  <div class="alert alert-warning">Wow! It's empty!</div>
+<%end%>
 
 <h3>Partially matched flats</h3>
 <% @flats[1].each_with_index do |flat, index| %>
@@ -39,10 +43,14 @@
         <p class="card-text">Type of the house: <%= flat.hs_type %> </p>
         <p class="card-text">Number of floors: <%= flat.n_floors %> </p>
         <p class="card-text">Price: <%= flat.price %> </p>
-        <form action="/delete_flat" method="post"> 
-          <input type="text" name="index" style="display:none"  value="<%= index %>">
+        <form action="/satisfy_request" method="post"> 
+          <input type="text" name="flat_address" style="display:none"  value="<%= flat.address %>">
+          <input type="text" name="request_index" style="display:none"  value="<%= @index %>">
           <button type="submit" class="btn btn-success">Buy</button>
         </form>
     </div>
   </div>
 <% end %>
+<%if @flats[1].empty?%>
+  <div class="alert alert-warning">Wow! It's empty!</div>
+<%end%>

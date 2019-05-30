@@ -98,3 +98,10 @@ post '/find_flats' do
   @flats = settings.flats.group(params['n_rooms'], params['dist'], params['hs_type'])
   erb :matched_flats 
 end
+
+post '/satisfy_request' do
+  flat_index = settings.flats.find(params['flat_address'])
+  settings.flats.remove(flat_index)
+  settings.requests.remove(params['request_index'])
+  redirect('/show_flats')
+end

@@ -58,3 +58,7 @@
     <% end %>
   </div>
 </div>
+
+<%if @flats.empty? %>
+  <div class="alert alert-warning">There's no flats at this moment</div>
+<%end %>
