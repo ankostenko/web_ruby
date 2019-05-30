@@ -15,6 +15,10 @@ class RequestHolder
     @requests.empty?
   end
 
+  def length
+    @requests.length
+  end
+
   def each
     @requests.each { |request| yield(request) }
   end

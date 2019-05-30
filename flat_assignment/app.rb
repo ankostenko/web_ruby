@@ -106,7 +106,6 @@ post '/satisfy_request' do
   redirect('/show_flats')
 end
 
-# I use string because it's just simpler instead of json
 def get_districts
   districts = {}
   # create hash of all districts
@@ -142,12 +141,16 @@ get '/statistics' do
     requests.each do |req|
       if key == req.district 
         dist_info[:a_reqs] += 1
+        m_flats = flats.group(req.n_rooms, req.district, req.hs_type)
+        req_size = m_flats[0].length + m_flats[1].length
+        dist_info[:cov] = (m_flats[0].length.to_f / req_size ) unless req_size.zero?
       end
     end
     unless dist_info[:a_flats].zero?
       dist_info[:m_sqr] /= dist_info[:a_flats]
       dist_info[:m_prc] /= dist_info[:a_flats]
     end
+    pp "#{dist_info[:cov]} - #{requests.length}"
     @districts[key] = dist_info
   end
 

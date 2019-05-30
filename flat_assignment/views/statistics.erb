@@ -6,7 +6,7 @@
         <p class="card-text">Mean square: <%= dist[:m_sqr] %> </p>
         <p class="card-text">Mean price: <%= dist[:m_prc] %> </p>
         <p class="card-text">Amount of requests: <%= dist[:a_reqs] %> </p>
-        <p class="card-text">Coverage: <%= dist[:cov] %> </p>
+        <p class="card-text">Coverage: <%= dist[:cov] * 100 %>% </p>
     </div>
   </div>
 <%end%>
