@@ -1,24 +1,33 @@
-require 'sinatra'
+require 'pstore'
 require_relative 'lib/flats_holder'
 require_relative 'lib/flat'
 require_relative 'lib/request'
 require_relative 'lib/request_holder'
 require_relative 'lib/address'
 
-configure do
-  set :flats, FlatHolder.new([
-    # square, numbder of rooms, address, floor, house type, number of floors, price 
-    Flat.new(80, 2, Address.new("Dist #1", "Str #1", 1), 3, "Brick", 5, 1700000),
-    Flat.new(100, 3, Address.new("Dist #1", "Str #2", 2), 3, "Brick", 10, 2300000),
-    Flat.new(120, 2, Address.new("Dist #3", "Str #3", 3), 3, "Panel", 5, 2500000),
-  ])
+storage = PStore.new('data/database.pstore')
 
-  set :requests, RequestHolder.new([
-    # number of rooms, district, hs_type
-    Request.new(3, "Dist #1", "Brick"),
-    Request.new(4, "Dist #2", "Brick") 
-  ])
-end 
+storage.transaction(true) do
+  @flats = storage[:flats]
+  @requests = storage[:requests]
+  @flats = FlatHolder.new if !@flats
+  @requests = RequestHolder.new if !@requests
+end
+
+at_exit do
+  pp "At exit works!"
+  storage.transaction do
+    storage[:flats] = @flats
+    storage[:requests] = @requests
+  end
+end
+
+require 'sinatra'
+
+configure do
+  set :flats, @flats
+  set :requests, @requests
+end
 
 get '/' do
   @flats = settings.flats
@@ -134,23 +143,23 @@ get '/statistics' do
     flats.each do |flat|
       if key == flat.address.district
         dist_info[:a_flats] += 1
-        dist_info[:m_sqr] += flat.square
-        dist_info[:m_prc] += flat.price
+        dist_info[:m_sqr] += flat.square.to_i
+        dist_info[:m_prc] += flat.price.to_i
       end
     end
+    nm_flats = 0
     requests.each do |req|
       if key == req.district 
         dist_info[:a_reqs] += 1
         m_flats = flats.group(req.n_rooms, req.district, req.hs_type)
-        req_size = m_flats[0].length + m_flats[1].length
-        dist_info[:cov] = (m_flats[0].length.to_f / req_size ) unless req_size.zero?
+        nm_flats += m_flats[0].length
       end
     end
+    dist_info[:cov] = (nm_flats.to_f / dist_info[:a_reqs] ) unless dist_info[:a_reqs].zero?
     unless dist_info[:a_flats].zero?
       dist_info[:m_sqr] /= dist_info[:a_flats]
       dist_info[:m_prc] /= dist_info[:a_flats]
     end
-    pp "#{dist_info[:cov]} - #{requests.length}"
     @districts[key] = dist_info
   end
 
