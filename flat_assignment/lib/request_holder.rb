@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class RequestHolder
   def initialize(requests = [])
     @requests = requests
   end
 
   def add(request)
-   @requests.push(request) 
+    @requests.push(request)
   end
 
   def remove(index)

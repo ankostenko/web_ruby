@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'pstore'
 require_relative 'lib/flats_holder'
 require_relative 'lib/flat'
@@ -10,12 +12,11 @@ storage = PStore.new('data/database.pstore')
 storage.transaction(true) do
   @flats = storage[:flats]
   @requests = storage[:requests]
-  @flats = FlatHolder.new if !@flats
-  @requests = RequestHolder.new if !@requests
+  @flats ||= FlatHolder.new
+  @requests ||= RequestHolder.new
 end
 
 at_exit do
-  pp "At exit works!"
   storage.transaction do
     storage[:flats] = @flats
     storage[:requests] = @requests
@@ -32,7 +33,7 @@ end
 get '/' do
   @flats = settings.flats
   @requests = settings.requests
-  erb :show_flats 
+  erb :show_flats
 end
 
 get '/main' do
@@ -47,8 +48,8 @@ end
 
 post '/add_flat' do
   address = Address.new(params['dist'], params['street'], params['n_house'])
-  flat = Flat.new(params['square'], params['n_rooms'], address, params['floor'], 
-                  params['hs_type'], params['n_floors'], params['price']) 
+  flat = Flat.new(params['square'], params['n_rooms'], address, params['floor'],
+                  params['hs_type'], params['n_floors'], params['price'])
   settings.flats.add(flat)
   redirect('/main')
 end
@@ -63,7 +64,7 @@ end
 
 get '/show_flats' do
   @flats = settings.flats
-  erb :show_flats 
+  erb :show_flats
 end
 
 post '/show_flats_r' do
@@ -77,7 +78,7 @@ post '/show_flats_g' do
 end
 
 get '/show_requests' do
-  @requests = settings.requests.sort! { |a, b| a.n_rooms.to_i - b.n_rooms.to_i } 
+  @requests = settings.requests.sort! { |a, b| a.n_rooms.to_i - b.n_rooms.to_i }
   erb :show_requests
 end
 
@@ -105,7 +106,7 @@ post '/find_flats' do
   @dist = params['dist']
   @hs_type = params['hs_type']
   @flats = settings.flats.group(params['n_rooms'], params['dist'], params['hs_type'])
-  erb :matched_flats 
+  erb :matched_flats
 end
 
 post '/satisfy_request' do
@@ -119,21 +120,21 @@ def get_districts
   districts = {}
   # create hash of all districts
   flats = settings.flats
-  flats.each do |flat| 
+  flats.each do |flat|
     dist = flat.address.district
-    districts[dist] = nil unless districts.has_key?(dist)
+    districts[dist] = nil unless districts.key?(dist)
   end
- 
+
   reqs = settings.requests
   reqs.each do |req|
     dist = req.district
-    districts[dist] = nil unless districts.has_key?(dist) 
+    districts[dist] = nil unless districts.key?(dist)
   end
   districts
 end
 
 get '/statistics' do
-  @districts = get_districts 
+  @districts = get_districts
   # obtain statistics
   flats = settings.flats
   requests = settings.requests
@@ -141,21 +142,21 @@ get '/statistics' do
     # amount of flats, mean square, mean price, amount of requests, coverage
     dist_info = { a_flats: 0, m_sqr: 0, m_prc: 0, a_reqs: 0, cov: 0 }
     flats.each do |flat|
-      if key == flat.address.district
-        dist_info[:a_flats] += 1
-        dist_info[:m_sqr] += flat.square.to_i
-        dist_info[:m_prc] += flat.price.to_i
-      end
+      next unless key == flat.address.district
+
+      dist_info[:a_flats] += 1
+      dist_info[:m_sqr] += flat.square.to_i
+      dist_info[:m_prc] += flat.price.to_i
     end
     nm_flats = 0
     requests.each do |req|
-      if key == req.district 
-        dist_info[:a_reqs] += 1
-        m_flats = flats.group(req.n_rooms, req.district, req.hs_type)
-        nm_flats += m_flats[0].length
-      end
+      next unless key == req.district
+
+      dist_info[:a_reqs] += 1
+      m_flats = flats.group(req.n_rooms, req.district, req.hs_type)
+      nm_flats += m_flats[0].length
     end
-    dist_info[:cov] = (nm_flats.to_f / dist_info[:a_reqs] ) unless dist_info[:a_reqs].zero?
+    dist_info[:cov] = (nm_flats.to_f / dist_info[:a_reqs]) unless dist_info[:a_reqs].zero?
     unless dist_info[:a_flats].zero?
       dist_info[:m_sqr] /= dist_info[:a_flats]
       dist_info[:m_prc] /= dist_info[:a_flats]

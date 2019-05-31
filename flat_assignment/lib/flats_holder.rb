@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FlatHolder
   def initialize(flats = [])
     @holder = flats
@@ -19,26 +21,22 @@ class FlatHolder
   def find(address)
     @holder.each_with_index do |flat, index|
       # string comparison
-      if (flat.address.to_s == address.to_s)
-        return index 
-      end
-    end 
+      return index if flat.address.to_s == address.to_s
+    end
   end
-  
+
   def empty?
     @holder.empty?
   end
 
-  def each 
+  def each
     @holder.each { |flat| yield(flat) }
   end
 
   def f_range(min, max)
     f_flats = []
-    @holder.each do |flat| 
-      if flat.price.to_i >= min.to_i && flat.price.to_i <= max.to_i
-        f_flats.push(flat) 
-      end
+    @holder.each do |flat|
+      f_flats.push(flat) if flat.price.to_i >= min.to_i && flat.price.to_i <= max.to_i
     end
     f_flats
   end
@@ -46,12 +44,10 @@ class FlatHolder
   def group_and_sort(district)
     g_flats = []
     @holder.each do |flat|
-      if (flat.address.district == district)
-        g_flats.push(flat)
-      end
+      g_flats.push(flat) if flat.address.district == district
     end
 
-   g_flats.sort! { |a, b| a.square.to_i - b.square.to_i }
+    g_flats.sort! { |a, b| a.square.to_i - b.square.to_i }
   end
 
   def group(n_rooms, dist, hs_type)
@@ -69,7 +65,7 @@ class FlatHolder
       end
     end
 
-    [fully_matched_flats, part_matched_flats] 
+    [fully_matched_flats, part_matched_flats]
   end
 
   def each_with_index

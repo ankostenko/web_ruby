@@ -1,7 +1,9 @@
-class Flat 
+# frozen_string_literal: true
+
+class Flat
   attr_reader :square, :n_rooms, :address, :floor, :hs_type, :n_floors, :price
 
-  def initialize(square, n_rooms, address, floor, 
+  def initialize(square, n_rooms, address, floor,
                  hs_type, n_floors, price)
     @square = square
     @n_rooms = n_rooms

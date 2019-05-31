@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Request
   attr_reader :n_rooms, :district, :hs_type
 

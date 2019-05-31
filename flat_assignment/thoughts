@@ -1,5 +1,7 @@
 TODO:
-  - Create database 
+  - Cleanup
+  - Tests  
+  - Empty fields are not allowed
 
 DONE:
   - Organize main page with two different options Requests/Flats
@@ -7,6 +9,7 @@ DONE:
   - Print all flats grouped by district and sorted by the square(DONE)
   - Fix panel/brick  
   - Create page with all statistics
+  - Create database 
 
 
 WARNING: 
