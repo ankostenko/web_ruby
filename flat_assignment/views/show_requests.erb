@@ -10,9 +10,9 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Request #<%= index + 1 %> </p>
-            <p class="card-text">Number of rooms: <%= request.n_rooms  %> </p>
-            <p class="card-text">District: <%= request.district %> </p>
-            <p class="card-text">Type of the house: <%= request.hs_type %> </p>
+            <p class="card-text" id=n_rooms name=n_rooms>Number of rooms: <%= request.n_rooms  %> </p>
+            <p class="card-text" id=dist name=dist>District: <%= request.district %> </p>
+            <p class="card-text" id=hs_type name=hs_type >Type of the house: <%= request.hs_type %> </p>
             <form action="/delete_request" method="post"> 
               <input type="text" name="index" style="display:none"  value="<%= index %>">
               <button type="submit" class="btn btn-danger">Remove</button>

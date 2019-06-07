@@ -18,7 +18,7 @@
             <input type="text" class="form-control" id="range-max" name="range-max"placeholder="100">
           </div>
           <div class="display: table-cell m-1">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="btn btn-primary">Price search</button>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
             <input type="text" class="form-control" id="dist" name="dist" placeholder="District">
           </div>
           <div class="display: table-cell m-1">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="btn btn-primary">District search</button>
           </div>
         </div>
       </div>
@@ -42,13 +42,13 @@
     <% @flats.each_with_index do |flat, index| %>
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Address: <%= flat.address.to_s %> </p>
-            <p class="card-text">Square: <%= flat.square %> </p>
-            <p class="card-text">Number of rooms: <%= flat.n_rooms %> </p>
-            <p class="card-text">Floor: <%= flat.floor %> </p>
-            <p class="card-text">Type of the house: <%= flat.hs_type %> </p>
-            <p class="card-text">Number of floors: <%= flat.n_floors %> </p>
-            <p class="card-text">Price: <%= flat.price %> </p>
+          <h5 class="card-title" id='address'>Address: <%= flat.address.to_s %> </p>
+            <p class="card-text" id='square' name='square'>Square: <%= flat.square %> </p>
+            <p class="card-text" id='n_rooms' name='n_rooms'>Number of rooms: <%= flat.n_rooms %> </p>
+            <p class="card-text" id='floor' name='floor'>Floor: <%= flat.floor %> </p>
+            <p class="card-text" id='hs_type' name='hs_type'>Type of the house: <%= flat.hs_type %> </p>
+            <p class="card-text" id='n_floors' name='n_floors'>Number of floors: <%= flat.n_floors %> </p>
+            <p class="card-text" id='price-<%=index%>' name='price-<%=index%>'>Price: <%= flat.price %> </p>
             <form action="/delete_flat" method="post"> 
               <input type="text" name="index" style="display:none"  value="<%= index %>">
               <button type="submit" class="btn btn-danger">Remove</button>

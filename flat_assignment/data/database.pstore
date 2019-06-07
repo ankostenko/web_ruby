@@ -1,496 +1,15 @@
 {:
-flatso:FlatHolder:@holder['o:	Flat:@squareI"100:ET:@n_roomsI"4;
-T:@addresso:Address:@districtI"District #3;
-T:@streetI"Street Str;
-T:@houseI"12A;
-T:@floorI"4;
+flatso:FlatHolder:@holder[o:	Flat:@squareI"ST99999:ET:@n_roomsI"NRT99999;
+T:@addresso:Address:@districtI"T_dist #T;
+T:@streetI"T_street #T;
+T:@houseI"T_n_house #T;
+T:@floorI"FT99999;
 T:@hs_typeI"
-Brick;
-T:@n_floorsI"10;
-T:@priceI"2.500.000;
-To;;	I"40;
-T;I"1;
-T;o;;I"Dist #1;
-T;I"Street #1;
-T;I"1;
-T;I"4;
-T;I"
 Panel;
-T;I"5;
-T;I"1.200.000;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-To;;	I"ST99999;
-T;I"NRT99999;
-T;o;;I"T_dist #T;
-T;I"T_street #T;
-T;I"T_n_house #T;
-T;I"FT99999;
-T;I"
-Panel;
-T;I"NFT99999;
-T;I"PT99999;
-T:requestso:RequestHolder:@requests[,o:Request;I"1;
-T;I"District #3;
-T;I"
-Brick;
-To;;I"3;
-T;I"District #3;
-T;I"
-Brick;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
-T;I"District #99;
-T;I"
-Panel;
-To;;I"10;
+T:@n_floorsI"NFT99999;
+T:@priceI"
+99999;
+T:requestso:RequestHolder:@requests[o:Request;I"101;
 T;I"District #99;
 T;I"
 Panel;

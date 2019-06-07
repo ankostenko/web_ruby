@@ -13,23 +13,11 @@ class RequestHolder
     @requests.delete_at(index.to_i)
   end
 
-  def empty?
-    @requests.empty?
-  end
-
-  def length
-    @requests.length
-  end
-
   def each
     @requests.each { |request| yield(request) }
   end
 
   def sort!
     @requests.sort! { |a, b| yield(a, b) }
-  end
-
-  def each_with_index
-    @requests.each_with_index { |request, index| yield(request, index) }
   end
 end

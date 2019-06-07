@@ -14,10 +14,6 @@ class FlatHolder
     @holder.delete_at(index.to_i)
   end
 
-  def filter
-    @holder.select { |flat| yield(flat) }
-  end
-
   def find(address)
     @holder.each_with_index do |flat, index|
       # string comparison
@@ -53,9 +49,7 @@ class FlatHolder
   def group(n_rooms, dist, hs_type)
     fully_matched_flats = []
     part_matched_flats = []
-    pp "Request: #{n_rooms} - #{dist} - #{hs_type}"
     @holder.each do |flat|
-      pp "Flat: #{flat.n_rooms} - #{flat.address.district} - #{flat.hs_type}"
       if dist == flat.address.district && hs_type == flat.hs_type
         if n_rooms.to_i == flat.n_rooms.to_i
           fully_matched_flats.push(flat)

@@ -13,13 +13,13 @@
 <% @flats[0].each_with_index do |flat, index| %>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Address: <%= flat.address.to_s %> </p>
-        <p class="card-text">Square: <%= flat.square %> </p>
-        <p class="card-text">Number of rooms: <%= flat.n_rooms %> </p>
-        <p class="card-text">Floor: <%= flat.floor %> </p>
-        <p class="card-text">Type of the house: <%= flat.hs_type %> </p>
-        <p class="card-text">Number of floors: <%= flat.n_floors %> </p>
-        <p class="card-text">Price: <%= flat.price %> </p>
+      <h5 class="card-title" id=address name=address>Address: <%= flat.address.to_s %> </p>
+        <p class="card-text" id=square name=square>Square: <%= flat.square %> </p>
+        <p class="card-text" id=n_rooms name=n_rooms>Number of rooms: <%= flat.n_rooms %> </p>
+        <p class="card-text" id=floor name=floor>Floor: <%= flat.floor %> </p>
+        <p class="card-text" id=hs_type name=hs_type>Type of the house: <%= flat.hs_type %> </p>
+        <p class="card-text" id=n_floors name=n_floors>Number of floors: <%= flat.n_floors %> </p>
+        <p class="card-text" id=price name=price>Price: <%= flat.price %> </p>
         <form action="/satisfy_request" method="post"> 
           <input type="text" name="flat_address" style="display:none"  value="<%= flat.address %>">
           <input type="text" name="request_index" style="display:none"  value="<%= @index %>">
@@ -37,12 +37,13 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Address: <%= flat.address.to_s %> </p>
-        <p class="card-text">Square: <%= flat.square %> </p>
-        <p class="card-text">Number of rooms: <%= flat.n_rooms %> </p>
-        <p class="card-text">Floor: <%= flat.floor %> </p>
-        <p class="card-text">Type of the house: <%= flat.hs_type %> </p>
-        <p class="card-text">Number of floors: <%= flat.n_floors %> </p>
-        <p class="card-text">Price: <%= flat.price %> </p>
+      <h5 class="card-title" id=address name=address>Address: <%= flat.address.to_s %> </p>
+        <p class="card-text" id=square name=square>Square: <%= flat.square %> </p>
+        <p class="card-text" id=n_rooms name=n_rooms>Number of rooms: <%= flat.n_rooms %> </p>
+        <p class="card-text" id=floor name=floor>Floor: <%= flat.floor %> </p>
+        <p class="card-text" id=hs_type name=hs_type>Type of the house: <%= flat.hs_type %> </p>
+        <p class="card-text" id=n_floors name=n_floors>Number of floors: <%= flat.n_floors %> </p>
+        <p class="card-text" id=price name=price>Price: <%= flat.price %> </p>
         <form action="/satisfy_request" method="post"> 
           <input type="text" name="flat_address" style="display:none"  value="<%= flat.address %>">
           <input type="text" name="request_index" style="display:none"  value="<%= @index %>">
