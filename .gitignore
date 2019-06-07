@@ -6,3 +6,5 @@
 
 # swap files
 */.*.sw*
+
+*/coverage/*
