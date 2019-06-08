@@ -1,0 +1,13 @@
+---
+linters:
+  FinalNewLine:
+    enabled: true
+  SpaceAroungErbTag:
+    enabled: true
+  ErbSafety:
+    enabled: true
+  Rubocop:
+    enabled: true
+    rubocop_config:
+      inherit_from:
+        - .rubocop.yml

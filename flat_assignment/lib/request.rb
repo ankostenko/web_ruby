@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# redundant comment
 class Request
   attr_reader :n_rooms, :district, :hs_type
 

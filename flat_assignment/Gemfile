@@ -17,4 +17,6 @@ gem 'puma', '~> 3.12'
 gem 'capybara'
 gem 'rspec', '~> 3.8'
 
-gem "simplecov", "~> 0.16.1"
+gem 'simplecov', '~> 0.16.1'
+
+gem 'erb_lint', '~> 0.0.28'

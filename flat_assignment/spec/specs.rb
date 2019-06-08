@@ -1,4 +1,4 @@
-# frozen_string_literal: true require 'spec_helper' 
+# frozen_string_literal: true
 
 require 'spec_helper'
 
@@ -60,11 +60,11 @@ RSpec.describe 'Application', type: :feature do
 
   it 'Should search by price' do
     visit('/show_flats')
-    fill_in('range-min', with: '99900') 
-    fill_in('range-max', with: '100000') 
+    fill_in('range-min', with: '99900')
+    fill_in('range-max', with: '100000')
     click_on('Price search')
     elem = find_by_id('price-0')
-    expect(elem).to have_content('99999') 
+    expect(elem).to have_content('99999')
   end
 
   it 'Should find flats according to request' do
@@ -78,7 +78,7 @@ RSpec.describe 'Application', type: :feature do
   it 'Should satisfy request' do
     visit('/show_requests')
     find_button('Show flats', match: :first).click
-    # I need to get all info from the page 
+    # I need to get all info from the page
     # and check whether the flat was bought or not
     square = find_by_id('square', match: :first).text
     n_rooms = find_by_id('n_rooms', match: :first).text
@@ -88,10 +88,11 @@ RSpec.describe 'Application', type: :feature do
     price = find_by_id('price', match: :first).text
 
     find_button('Buy', match: :first).click
-    
+
     # expectations
-    sqr = page.all('square')
-    expect(sqr).not_to have_content(include(square))
+    expect(page).not_to have_content(include(square).and(include(n_rooms).and(include(floor)
+                                     .and(include(hs_type).and(include(n_floors)
+                                     .and(include(price)))))))
   end
 
   it 'Should delete request' do
@@ -100,13 +101,12 @@ RSpec.describe 'Application', type: :feature do
     dist = find_by_id('dist', match: :first)
     hs_type = find_by_id('hs_type', match: :first)
     find_button('Remove', match: :first).click
-     
-    expect(page).not_to have_content(include(n_rooms).and include(dist).and include(hs_type))
+
+    expect(page).not_to have_content(include(n_rooms).and(include(dist).and(include(hs_type))))
   end
 
   it 'Should delete flat' do
     visit('show_flats')
-    square = find_by_id('square', match: :first).text
     n_rooms = find_by_id('n_rooms', match: :first).text
     floor = find_by_id('floor', match: :first).text
     hs_type = find_by_id('hs_type', match: :first).text
@@ -115,6 +115,7 @@ RSpec.describe 'Application', type: :feature do
 
     find_button('Remove', match: :first).click
 
-    expect(page).not_to have_content(include(n_rooms).and include(floor).and include(hs_type).and include(n_floors).and include(price))
+    expect(page).not_to have_content(include(n_rooms).and(include(floor).and(include(hs_type)
+                                     .and(include(n_floors).and(include(price))))))
   end
 end

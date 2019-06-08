@@ -1,7 +1,7 @@
 TODO:
   - Cleanup
-  - Tests  
   - Empty fields are not allowed
+  - Change fields that only allow number to recieve only numbers 
 
 DONE:
   - Organize main page with two different options Requests/Flats
@@ -10,7 +10,7 @@ DONE:
   - Fix panel/brick  
   - Create page with all statistics
   - Create database 
-
+  - Tests  
 
 WARNING: 
   - I've changed way to display requests and flats, probably I'll need 

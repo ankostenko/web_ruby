@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# redundant comment
 class Address
   attr_reader :district
 

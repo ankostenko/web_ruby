@@ -5,17 +5,17 @@
   </div>
 </nav>
 <div class="tab-content show active" id="nav-tabContent">
-  <div class="tab-pane active"  id="flats" role="tabpanel" aria-labelledby="flats-tab">
-    <!-- RANGE SEARCH  --> 
+  <div class="tab-pane active" id="flats" role="tabpanel" aria-labelledby="flats-tab">
+    <!-- RANGE SEARCH  -->
     <form action="/show_flats_r" method="post" style="display: table">
       <div class="container p-3">
         <label for="range">Range of the price</label>
         <div class="row">
           <div class="display: table-cell m-1">
-            <input type="text" class="form-control" id="range-min" name="range-min"placeholder="0">
+            <input type="number" class="form-control" id="range-min" name="range-min" placeholder="0" required />
           </div>
           <div class="display: table-cell m-1">
-            <input type="text" class="form-control" id="range-max" name="range-max"placeholder="100">
+            <input type="number" class="form-control" id="range-max" name="range-max" placeholder="100" required />
           </div>
           <div class="display: table-cell m-1">
             <button type="submit" class="btn btn-primary">Price search</button>
@@ -30,7 +30,7 @@
         <label for="dist">District</label>
         <div class="row">
           <div class="display: table-cell m-1">
-            <input type="text" class="form-control" id="dist" name="dist" placeholder="District">
+            <input type="text" class="form-control" id="dist" name="dist" placeholder="District" required />
           </div>
           <div class="display: table-cell m-1">
             <button type="submit" class="btn btn-primary">District search</button>
@@ -48,9 +48,9 @@
             <p class="card-text" id='floor' name='floor'>Floor: <%= flat.floor %> </p>
             <p class="card-text" id='hs_type' name='hs_type'>Type of the house: <%= flat.hs_type %> </p>
             <p class="card-text" id='n_floors' name='n_floors'>Number of floors: <%= flat.n_floors %> </p>
-            <p class="card-text" id='price-<%=index%>' name='price-<%=index%>'>Price: <%= flat.price %> </p>
-            <form action="/delete_flat" method="post"> 
-              <input type="text" name="index" style="display:none"  value="<%= index %>">
+            <p class="card-text" id='price-<%= index %>' name='price-<%= index %>'>Price: <%= flat.price %> </p>
+            <form action="/delete_flat" method="post">
+              <input type="text" name="index" style="display:none" value="<%= index %>" />
               <button type="submit" class="btn btn-danger">Remove</button>
             </form>
         </div>
@@ -59,6 +59,6 @@
   </div>
 </div>
 
-<%if @flats.empty? %>
+<% if @flats.empty? %>
   <div class="alert alert-warning">There's no flats at this moment</div>
-<%end %>
+<% end %>

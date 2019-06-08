@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# redundant comment
 class Flat
   attr_reader :square, :n_rooms, :address, :floor, :hs_type, :n_floors, :price
 

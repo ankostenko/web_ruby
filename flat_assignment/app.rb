@@ -116,7 +116,7 @@ post '/satisfy_request' do
   redirect('/show_flats')
 end
 
-def get_districts
+def extr_dist
   districts = {}
   # create hash of all districts
   flats = settings.flats
@@ -134,7 +134,7 @@ def get_districts
 end
 
 get '/statistics' do
-  @districts = get_districts
+  @districts = extr_dist
   # obtain statistics
   flats = settings.flats
   requests = settings.requests
@@ -148,15 +148,15 @@ get '/statistics' do
       dist_info[:m_sqr] += flat.square.to_i
       dist_info[:m_prc] += flat.price.to_i
     end
-    nm_flats = 0
+    number_matched_flats = 0
     requests.each do |req|
       next unless key == req.district
 
       dist_info[:a_reqs] += 1
-      m_flats = flats.group(req.n_rooms, req.district, req.hs_type)
-      nm_flats += m_flats[0].length
+      matched_flats = flats.group(req.n_rooms, req.district, req.hs_type)
+      number_matched_flats += matched_flats[0].length
     end
-    dist_info[:cov] = (nm_flats.to_f / dist_info[:a_reqs]) unless dist_info[:a_reqs].zero?
+    dist_info[:cov] = (number_matched_flats.to_f / dist_info[:a_reqs]) unless dist_info[:a_reqs].zero?
     unless dist_info[:a_flats].zero?
       dist_info[:m_sqr] /= dist_info[:a_flats]
       dist_info[:m_prc] /= dist_info[:a_flats]
