@@ -6,6 +6,7 @@ require_relative 'lib/flat'
 require_relative 'lib/request'
 require_relative 'lib/request_holder'
 require_relative 'lib/address'
+require_relative 'lib/statistics'
 
 storage = PStore.new('data/database.pstore')
 
@@ -116,52 +117,10 @@ post '/satisfy_request' do
   redirect('/show_flats')
 end
 
-def extr_dist
-  districts = {}
-  # create hash of all districts
-  flats = settings.flats
-  flats.each do |flat|
-    dist = flat.address.district
-    districts[dist] = nil unless districts.key?(dist)
-  end
-
-  reqs = settings.requests
-  reqs.each do |req|
-    dist = req.district
-    districts[dist] = nil unless districts.key?(dist)
-  end
-  districts
-end
-
 get '/statistics' do
-  @districts = extr_dist
-  # obtain statistics
-  flats = settings.flats
-  requests = settings.requests
-  @districts.each_key do |key|
-    # amount of flats, mean square, mean price, amount of requests, coverage
-    dist_info = { a_flats: 0, m_sqr: 0, m_prc: 0, a_reqs: 0, cov: 0 }
-    flats.each do |flat|
-      next unless key == flat.address.district
-
-      dist_info[:a_flats] += 1
-      dist_info[:m_sqr] += flat.square.to_i
-      dist_info[:m_prc] += flat.price.to_i
-    end
-    number_matched_flats = 0
-    requests.each do |req|
-      next unless key == req.district
-
-      dist_info[:a_reqs] += 1
-      matched_flats = flats.group(req.n_rooms, req.district, req.hs_type)
-      number_matched_flats += matched_flats[0].length
-    end
-    dist_info[:cov] = (number_matched_flats.to_f / dist_info[:a_reqs]) unless dist_info[:a_reqs].zero?
-    unless dist_info[:a_flats].zero?
-      dist_info[:m_sqr] /= dist_info[:a_flats]
-      dist_info[:m_prc] /= dist_info[:a_flats]
-    end
-    @districts[key] = dist_info
+  @districts = Statistics.extr_dist(settings.flats, settings.requests)
+  @districts.each_key do |dist|
+    @districts[dist] = Statistics.district_info(dist, settings.flats, settings.requests)
   end
 
   erb :statistics
