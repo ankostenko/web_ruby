@@ -13,36 +13,42 @@ RSpec.describe 'Application', type: :feature do
   end
 
   it 'Should add requests' do
-    visit('/add_request')
-    fill_in('n_rooms', with: '101')
-    fill_in('district', with: 'District #99')
-    select('Panel', from: 'hs_type')
-    click_on('Add')
-    expect(page).to have_content('101')
-    expect(page).to have_content('District #99')
+    cn = [1, 2]
+    cn.each do |c|
+      visit('/add_request')
+      fill_in('n_rooms', with: '99999')
+      fill_in('district', with: 'T_dist #T')
+      select('Panel', from: 'hs_type')
+      click_on('Add')
+    end
+    expect(page).to have_content('99999')
+    expect(page).to have_content('T_dist #T')
     expect(page).to have_content('Panel')
   end
 
   it 'Should add flat' do
-    visit('/add_flat')
-    fill_in('square', with: 'ST99999')
-    fill_in('n_rooms', with: 'NRT99999')
-    fill_in('dist', with: 'T_dist #T')
-    fill_in('street', with: 'T_street #T')
-    fill_in('n_house', with: 'T_n_house #T')
-    fill_in('floor', with: 'FT99999')
-    select('Panel', from: 'hs_type')
-    fill_in('n_floors', with: 'NFT99999')
-    fill_in('price', with: '99999')
-    click_on('Add')
-    expect(page).to have_content('ST99999')
-    expect(page).to have_content('NRT99999')
+    cn = [1, 2]
+    cn.each do |c|
+      visit('/add_flat')
+      fill_in('square', with: '99999')
+      fill_in('n_rooms', with: '99999')
+      fill_in('dist', with: 'T_dist #T')
+      fill_in('street', with: 'T_street #T')
+      fill_in('n_house', with: 'T_n_house #T')
+      fill_in('floor', with: '99999')
+      select('Panel', from: 'hs_type')
+      fill_in('n_floors', with: '99999')
+      fill_in('price', with: '99999')
+      click_on('Add')
+    end
+    expect(page).to have_content('99999')
+    expect(page).to have_content('99999')
     expect(page).to have_content('T_dist #T')
     expect(page).to have_content('T_street #T')
     expect(page).to have_content('T_n_house #T')
-    expect(page).to have_content('FT99999')
+    expect(page).to have_content('99999')
     expect(page).to have_content('Panel')
-    expect(page).to have_content('NFT99999')
+    expect(page).to have_content('99999')
     expect(page).to have_content('99999')
   end
 
@@ -72,7 +78,7 @@ RSpec.describe 'Application', type: :feature do
     find_button('Show flats', match: :first).click
     expect(page).not_to have_content('101')
     expect(page).not_to have_content('District #99')
-    expect(page).not_to have_content('Panel')
+    expect(page).not_to have_content('Brick')
   end
 
   it 'Should satisfy request' do

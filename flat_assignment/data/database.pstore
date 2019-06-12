@@ -1,16 +1,36 @@
 {:
-flatso:FlatHolder:@holder[o:	Flat:@squareI"ST99999:ET:@n_roomsI"NRT99999;
+flatso:FlatHolder:@holder[o:	Flat:@squareI"
+99999:ET:@n_roomsI"
+99999;
 T:@addresso:Address:@districtI"T_dist #T;
 T:@streetI"T_street #T;
 T:@houseI"T_n_house #T;
-T:@floorI"FT99999;
+T:@floorI"
+99999;
 T:@hs_typeI"
 Panel;
-T:@n_floorsI"NFT99999;
+T:@n_floorsI"
+99999;
 T:@priceI"
 99999;
-T:requestso:RequestHolder:@requests[o:Request;I"101;
-T;I"District #99;
+T:requestso:RequestHolder:@requests[	o:Request;I"
+99999;
+T;I"T_dist #T;
+T;I"
+Panel;
+To;;I"
+99999;
+T;I"T_dist #T;
+T;I"
+Panel;
+To;;I"
+99999;
+T;I"T_dist #T;
+T;I"
+Panel;
+To;;I"
+99999;
+T;I"T_dist #T;
 T;I"
 Panel;
 T
