@@ -1,36 +1,15 @@
 {:
-flatso:FlatHolder:@holder[o:	Flat:@squareI"
-99999:ET:@n_roomsI"
-99999;
-T:@addresso:Address:@districtI"T_dist #T;
-T:@streetI"T_street #T;
-T:@houseI"T_n_house #T;
-T:@floorI"
-99999;
+flatso:FlatHolder:@holder[o:	Flat:@squareI"123:ET:@n_roomsI"	1234;
+T:@addresso:Address:@districtI"	sadf;
+T:@streetI"	asdf;
+T:@houseI"	asdf;
+T:@floorI"	2134;
 T:@hs_typeI"
 Panel;
-T:@n_floorsI"
-99999;
-T:@priceI"
-99999;
-T:requestso:RequestHolder:@requests[	o:Request;I"
-99999;
-T;I"T_dist #T;
-T;I"
-Panel;
-To;;I"
-99999;
-T;I"T_dist #T;
-T;I"
-Panel;
-To;;I"
-99999;
-T;I"T_dist #T;
-T;I"
-Panel;
-To;;I"
-99999;
-T;I"T_dist #T;
+T:@n_floorsI"123;
+T:@priceI"	1234;
+T:requestso:RequestHolder:@requests[o:Request;I"3;
+T;I"	asdf;
 T;I"
 Panel;
 T

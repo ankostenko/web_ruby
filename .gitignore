@@ -1,9 +1,3 @@
-# boostrap stuff
-/static_html_page/web_page/css/*
-/static_html_page/web_page/js/*
-/*/public/css/*
-/*/public/js/*
-
 # swap files
 */.*.sw*
 
