@@ -31,6 +31,23 @@ configure do
   set :requests, @requests
 end
 
+configure :test do
+  set :flats, FlatHolder.new([
+                               # square, number of rooms, address, floor, house type, nubmer of floors, price
+                               Flat.new(80, 3, Address.new('Dist #1', 'Str #1', 1), 8, 'Brick', 10, 1_400_000),
+                               Flat.new(50, 4, Address.new('Dist #1', 'Str #3', 12), 3, 'Brick', 5, 1_400_000),
+                               Flat.new(50, 3, Address.new('Dist #1', 'Str #4', 2), 3, 'Brick', 5, 1_400_000),
+                               Flat.new(50, 4, Address.new('Dist #1', 'Str #5', 12), 3, 'Brick', 5, 1_400_000)
+                             ])
+
+  set :requests, RequestHolder.new([
+                                     # nubmer of rooms, district, type of a house
+                                     Request.new(3, 'Dist #1', 'Brick'),
+                                     Request.new(4, 'Dist #1', 'Brick'),
+                                     Request.new(5, 'Dist #1', 'Brick')
+                                   ])
+end
+
 get '/' do
   @flats = settings.flats
   @requests = settings.requests
