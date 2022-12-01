@@ -8,7 +8,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem 'rubocop', '~> 0.71.0'
 
-gem 'sinatra', '~> 2.0'
+gem 'sinatra', '~> 2.2'
 
 gem 'rerun', '~> 0.13.0'
 
